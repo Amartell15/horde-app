@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<BorderPane style=" -fx-background-color: black;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Horde.Controller">
+   <center>
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="508.0" prefWidth="862.0" style=" -fx-background-color: black;">
+         <AnchorPane layoutX="55.0" layoutY="53.0" prefHeight="59.0" prefWidth="160.0">
+            <children>
+               <TextField fx:id="duration" focusTraversable="false" layoutY="32.0" onKeyPressed="#handleKeyPress"
+                          prefHeight="26.0" prefWidth="179.0"/>
+               <Text fill="#ea6e21" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Duration:" wrappingWidth="108.0">
+                  <font>
+                     <Font name="Dubai Medium" size="18.0" />
+                  </font>
+               </Text>
+            </children>
+         </AnchorPane>
+         <AnchorPane layoutX="55.0" layoutY="142.0" prefHeight="59.0" prefWidth="160.0">
+            <children>
+               <TextField fx:id="breakTime" focusTraversable="false" layoutY="32.0" onKeyPressed="#handleKeyPress"
+                          prefHeight="26.0" prefWidth="179.0"/>
+               <Text fill="#ea6e21" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Break Time:" wrappingWidth="108.0">
+                  <font>
+                     <Font name="Dubai Medium" size="18.0" />
+                  </font>
+               </Text>
+            </children>
+         </AnchorPane>
+         <AnchorPane layoutX="286.0" layoutY="254.0" prefHeight="226.0" prefWidth="290.0">
+            <children>
+               <Text fx:id="minutesTimer" boundsType="VISUAL" fill="#ea6e21" layoutX="40.0" layoutY="110.0"
+                     strokeType="OUTSIDE" strokeWidth="0.0" text="00" wrappingWidth="101.2060546875">
+                  <font>
+                     <Font size="78.0"/>
+                  </font>
+               </Text>
+               <Text fx:id="secondsTimer1" boundsType="VISUAL" fill="#ea6e21" layoutX="132.0" layoutY="102.0"
+                     strokeType="OUTSIDE" strokeWidth="0.0" text=":" wrappingWidth="101.2060546875">
+                  <font>
+                     <Font size="78.0"/>
+                  </font>
+               </Text>
+               <Text fx:id="currentMobber" boundsType="VISUAL" fill="#ea6e21" layoutX="20.0" layoutY="26.0"
+                     strokeType="OUTSIDE" strokeWidth="0.0" text="Mobber" textAlignment="CENTER" textOrigin="CENTER"
+                     wrappingWidth="247.15673828125">
+                  <font>
+                     <Font size="33.0"/>
+                  </font>
+               </Text>
+               <ButtonBar layoutX="-10.0" layoutY="131.0" prefHeight="33.0" prefWidth="278.0">
+                  <buttons>
+                     <Button fx:id="stopButton" mnemonicParsing="false" onAction="#stopTimer" prefHeight="33.0"
+                             prefWidth="103.0" text="Stop">
+                        <font>
+                           <Font size="16.0"/>
+                        </font>
+                     </Button>
+                     <Button fx:id="startButton" mnemonicParsing="false" onAction="#startTimer" prefHeight="38.0"
+                             prefWidth="84.0" text="Start">
+                        <font>
+                           <Font size="16.0"/>
+                        </font>
+                     </Button>
+                     <Button fx:id="pauseButton" mnemonicParsing="false" onAction="#pauseTimer" prefHeight="33.0"
+                             text="Pause">
+                        <font>
+                           <Font size="16.0"/>
+                        </font>
+                     </Button>
+                  </buttons>
+                  <effect>
+                     <Blend/>
+                  </effect>
+               </ButtonBar>
+               <Text fx:id="secondsTimer" boundsType="VISUAL" fill="#ea6e21" layoutX="159.0" layoutY="110.0"
+                     strokeType="OUTSIDE" strokeWidth="0.0" text="00" wrappingWidth="101.2060546875">
+                  <font>
+                     <Font size="78.0"/>
+                  </font>
+               </Text>
+               <ButtonBar layoutX="29.0" layoutY="172.0" prefHeight="33.0" prefWidth="199.0">
+                  <buttons>
+                     <Button fx:id="skipButton" mnemonicParsing="false" onAction="#skipButton" prefHeight="31.0"
+                             prefWidth="84.0" text="Skip">
+                        <font>
+                           <Font size="16.0"/>
+                        </font>
+                     </Button>
+                     <Button fx:id="randomButton" mnemonicParsing="false" onAction="#randomButton" prefHeight="31.0"
+                             prefWidth="103.0" text="Random">
+                        <font>
+                           <Font size="16.0"/>
+                        </font>
+                     </Button>
+                  </buttons>
+                  <effect>
+                     <Blend/>
+                  </effect>
+               </ButtonBar>
+            </children>
+         </AnchorPane>
+         <AnchorPane layoutX="597.0" layoutY="26.0" prefHeight="231.0" prefWidth="241.0">
+            <children>
+               <ListView fx:id="nextQueue" layoutX="9.0" layoutY="49.0" onDragDropped="#moveUser"
+                         onKeyPressed="#handleKeyPress" prefHeight="134.0" prefWidth="224.0">
+                  <effect>
+                     <Glow/>
+                  </effect>
+               </ListView>
+               <Button fx:id="addName" layoutX="168.0" layoutY="194.0" mnemonicParsing="false" onAction="#addName" text="Add User" />
+               <Text fill="#ea6e21" layoutX="6.0" layoutY="24.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" Your Horde:">
+                  <font>
+                     <Font name="Dubai Medium" size="21.0" />
+                  </font>
+               </Text>
+            </children>
+         </AnchorPane>
+      </AnchorPane>
+   </center>
+</BorderPane>

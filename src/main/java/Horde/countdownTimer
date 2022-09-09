@@ -1,0 +1,83 @@
+package Horde;
+
+// Import Statements
+import javafx.animation.Timeline;
+import javafx.application.Application;
+import javafx.stage.Stage;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.scene.layout.HBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.animation.Keyframe;
+import javafx.util.Duration;
+
+// make it to where the user can input the amount of time
+public class countdownTimer extends App {
+
+    TextField startTime = new TextField();
+    private final Integer startTime = ;
+    private Integer min = startTime;
+    private Integer secs = startTime;
+    private label label;
+
+    @Override
+    public void start(Stage windows) throws Exception {
+              // word size and color
+
+              label = new Label();
+              label.setTextFill(Color.ORANGE);
+              label.setFont(Font.font(25));
+
+              // distance apart
+              HBox layout = new HBox(5);
+              layout.getChildren().addAll(label);
+              getTime();
+
+                // show window and title
+              windows.setScene(new Scene (layout, 300 , 70, Color BLACK));
+              windows.setTitle("Horde");
+              windows.show();
+}
+  //  timeline for timer and stop the timer
+    private void getTime() {
+         Timeline time = new Timeline();
+         time.setCycleCount(Timeline.INDEFINITE);
+         if(time != 0){
+           time.stop();
+         }
+         // create a loop for the timer
+         Keyframe frame = new Key Frame(duration.seconds(1), new EventHandler<ActionEvent>(){
+
+        // every second we want this event to happen
+         @Override
+         public void handle(ActionEvent event) {
+
+          label.setText(min.toString());
+          label.setText(secs.toString());
+           if( min >= 0 , secs >= 0){
+             min--;
+             secs--;
+         }
+      else if(min <= 0 , secs <= 0) {
+          time.stop();
+         //SENDS alert to let you know when timer has stopped
+          Alert alert = new Alert(Alert.AlertType.INFORMATION);
+          alert.setHeaderText(" Time's Up!");
+          alert.show();
+
+      }
+      }
+         }));
+         time.getKeyFrame().add(frame);
+         time.playFromStart();
+
+}
+
+public static void main(String[] args) {
+    Application.launch(args);
+}
+
+}
